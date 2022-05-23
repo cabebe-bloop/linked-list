@@ -52,12 +52,30 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def get_last(self):
-        pass
+        # from coworking with vange
+        if not self.head: 
+            return None
+        current = self.head
+        while current: 
+            if not current.next:
+                return current.value
+            current = current.next
+            
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def add_last(self, value):
+        #  if not self.head: 
+        #     self.head = Node(value)
+        #     return
+
+        # current = self.head
+        # while current: 
+        #     if not current.next:
+        #         current.next = Node(value)
+        #         return
+        #     current = current.next
         pass
 
     # method to return the max value in the linked list
