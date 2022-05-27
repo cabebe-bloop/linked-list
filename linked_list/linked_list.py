@@ -36,8 +36,8 @@ class LinkedList:
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def search(self, value):
         if self.head is None:
             return False
@@ -50,10 +50,18 @@ class LinkedList:
 
 
     # method that returns the length of the singly linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def length(self):
-        pass
+        if not self.head:
+            return 0
+        current = self.head
+        count = 0
+        while current: 
+            if not current.next: 
+                return count
+            current = current.next
+            count += 1
 
     # method that returns the value at a given index in the linked list
     # index count starts at 0
@@ -61,7 +69,16 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def get_at_index(self, index):
-        pass
+        if self.head is None:
+            return None
+        current = self.head
+        current_index = 0
+        while current_index < index:
+            if not current.next and current_index < index:
+                return None
+            current = current.next
+            current_index += 1
+        return current.value
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
