@@ -66,8 +66,8 @@ class LinkedList:
     # method that returns the value at a given index in the linked list
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def get_at_index(self, index):
         if self.head is None:
             return None
@@ -82,10 +82,9 @@ class LinkedList:
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def get_last(self):
-        # from coworking with vange
         if not self.head: 
             return None
         current = self.head
@@ -99,28 +98,52 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def add_last(self, value):
-        #  if not self.head: 
-        #     self.head = Node(value)
-        #     return
-
-        # current = self.head
-        # while current: 
-        #     if not current.next:
-        #         current.next = Node(value)
-        #         return
-        #     current = current.next
-        pass
+        if not self.head: 
+            self.head = Node(value, next_node = None)
+        current = self.head
+        while current: 
+            if not current.next:
+                current.next = Node(value, next_node = None)
+                return current.next
+            current = current.next
 
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max(self):
-        pass
+        if not self.head:
+            return None
+        current = self.head
+        max_value = self.head.value
+        while current:
+            if current.value > max_value:
+                max_value = current.value
+            current = current.next
+        return max_value
 
     # method to delete the first node found with specified value
     # Time Complexity: ?
     # Space Complexity: ?
     def delete(self, value):
-        pass
+        if not self.head:
+            return None
+        value_found = False
+        current = self.head
+        while not value_found and current:
+            if current == self.head and current.value == value:
+                self.head = current.next
+                value_found = True
+            if not current.next.next and current.next.value == value:
+                current.next = None
+                value_found = True
+            if current.next.value == value:
+                current.next = current.next.next
+                value_found = True
+
+            current = current.next
+
+        
+        # if value isn't found, don't do anything
+        
 
     # method to print all the values in the linked list
     # Time Complexity: ?
