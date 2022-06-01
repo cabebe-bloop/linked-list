@@ -125,21 +125,26 @@ class LinkedList:
     # Space Complexity: ?
     def delete(self, value):
         if not self.head:
-            return None
-        value_found = False
+            return
+        if self.head.value == value:
+            self.head = self.head.next
+            return
+        
         current = self.head
-        while not value_found and current:
-            if current == self.head and current.value == value:
-                self.head = current.next
-                value_found = True
-            if not current.next.next and current.next.value == value:
-                current.next = None
-                value_found = True
-            if current.next.value == value:
-                current.next = current.next.next
-                value_found = True
+        previous = None
 
+        while current:
+            if current.next is None and current.value == value:
+                previous.next = None
+                return
+            if current.value == value:
+                previous.next = current.next
+                return 
+            previous = current
             current = current.next
+            print(previous.value, current.value)
+            
+
 
         
         # if value isn't found, don't do anything
