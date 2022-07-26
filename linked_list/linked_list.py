@@ -37,7 +37,7 @@ class LinkedList:
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
     # Time Complexity: O(n)
-    # Space Complexity: O(n)
+    # Space Complexity: O(1)
     def search(self, value):
         if self.head is None:
             return False
@@ -51,7 +51,7 @@ class LinkedList:
 
     # method that returns the length of the singly linked list
     # Time Complexity: O(n)
-    # Space Complexity: O(n)
+    # Space Complexity: O(1)
     def length(self):
         if not self.head:
             return 0
@@ -67,7 +67,7 @@ class LinkedList:
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
     # Time Complexity: O(n)
-    # Space Complexity: O(n)
+    # Space Complexity: O(1)
     def get_at_index(self, index):
         if self.head is None:
             return None
@@ -159,8 +159,8 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def reverse(self):
         if not self.head:
             return 
